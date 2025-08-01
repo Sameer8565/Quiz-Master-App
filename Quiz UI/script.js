@@ -1,7 +1,7 @@
-// Configuration for your Spring Boot API
-const API_BASE_URL = 'http://localhost:8080'; // Change this to your backend URL
+// Configuration Spring Boot API
+const API_BASE_URL = 'http://localhost:8080'; 
 
-// Category mapping for your database
+// Category mapping from database
 const categoryMapping = {
     'java': 'Java',
     'javascript': 'JavaScript', 
@@ -80,11 +80,11 @@ function startQuiz(topic) {
 }
 
 function loadQuizQuestions(topic) {
-    // Call your Spring Boot API
+    // Call Spring Boot API
     fetchQuizQuestions(topic)
         .then(questions => {
             if (questions && questions.length > 0) {
-                // Transform the questions to match our frontend format
+                // Transform the questions to match  frontend format
                 currentQuiz.questions = transformQuestionsFromAPI(questions);
                 
                 // Initialize quiz interface
@@ -103,7 +103,7 @@ function loadQuizQuestions(topic) {
         });
 }
 
-// Transform questions from your API format to frontend format
+// Transform questions  API format to frontend format
 function transformQuestionsFromAPI(apiQuestions) {
     return apiQuestions.map(q => {
         const options = [q.optionA, q.optionB, q.optionC, q.optionD];
@@ -477,7 +477,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the application
     showSection('home');
     
-    // Load real question count from your API
+    // Load real question count from  API
     fetchQuestionCount().then(count => {
         const questionCountElements = document.querySelectorAll('.stat-number');
         if (questionCountElements.length > 0) {
